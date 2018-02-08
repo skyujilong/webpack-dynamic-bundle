@@ -1,0 +1,28 @@
+[ { id: 8,
+    keyPath: '/Users/jilong5/git-workspace/react-server-render-demo/src/client/js/mods/ui/testapp/dynamic.jsx',
+    chunk: 
+     { id: 0,
+       chunkName: 'dynamic',
+       path: 'js/dynamic-chunk-bc0f36.js',
+       md5: 'bc0f36842010ae1fa61382e8e35e81e4' } },
+  { id: 37,
+    keyPath: '/Users/jilong5/git-workspace/react-server-render-demo/src/client/js/mods/ui/testDynamic/dynamic.jsx',
+    chunk: 
+     { id: 0,
+       chunkName: 'dynamic',
+       path: 'js/dynamic-chunk-bc0f36.js',
+       md5: 'bc0f36842010ae1fa61382e8e35e81e4' } },
+  { id: 38,
+    keyPath: '/Users/jilong5/git-workspace/react-server-render-demo/src/client/js/mods/ui/testapp/test.jsx',
+    chunk: 
+     { id: 0,
+       chunkName: 'dynamic',
+       path: 'js/dynamic-chunk-bc0f36.js',
+       md5: 'bc0f36842010ae1fa61382e8e35e81e4' } },
+  { id: 39,
+    keyPath: '/Users/jilong5/git-workspace/react-server-render-demo/src/client/js/mods/ui/testapp/other.jsx',
+    chunk: 
+     { id: 1,
+       chunkName: 'other',
+       path: 'js/other-chunk-d314d7.js',
+       md5: 'd314d7cb451909e9c86a4f0d024d153d' } } ]
