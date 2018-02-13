@@ -1,0 +1,36 @@
+Chunk {
+  id: 6,
+  ids: [ 6 ],
+  debugId: 1009,
+  name: 'manifest',
+  _modules: 
+   SortableSet {
+     _sortFn: [Function: sortByIdentifier],
+     _lastActiveSortFn: null },
+  entrypoints: 
+   [ Entrypoint { name: 'h5-demo', chunks: [Object] },
+     Entrypoint { name: 'index', chunks: [Object] },
+     Entrypoint { name: 'pc-demo', chunks: [Object] } ],
+  chunks: 
+   [ Chunk {
+       id: 2,
+       ids: [Object],
+       debugId: 1008,
+       name: 'vendor',
+       _modules: [Object],
+       entrypoints: [Object],
+       chunks: [Object],
+       parents: [Object],
+       blocks: [],
+       origins: [],
+       files: [Object],
+       rendered: true,
+       hash: 'b33fecc444846a9fa9980ccf6a612bab',
+       renderedHash: 'b33fecc444846a9fa998' } ],
+  parents: [],
+  blocks: [],
+  origins: [],
+  files: [ 'js/manifest.js' ],
+  rendered: true,
+  hash: 'dcf053f0fb8b1945f89d352131103c79',
+  renderedHash: 'dcf053f0fb8b1945f89d' }

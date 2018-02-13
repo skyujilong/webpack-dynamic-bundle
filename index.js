@@ -3,8 +3,15 @@ const inspect = require('util').inspect;
 const fs = require("fs");
 const path = require('path');
 
-function WebpackDynamicBundle() {
-
+function WebpackDynamicBundle(options) {
+    if (!options || options.filePath){
+        throw new Error('need file path!');
+    }
+    if(!path.isAbsolute(options.filePath)){
+        throw new Error('need absolute file path!');
+    }
+    this.options = options;
+    
 }
 
 WebpackDynamicBundle.prototype.apply = function (compiler) {
@@ -19,12 +26,6 @@ WebpackDynamicBundle.prototype.apply = function (compiler) {
             entrypoints,
             modules
         } = result;
-        //TODO: 排除entrypoints中的 bundle
-
-
-        // for (let chunksInfo of namedChunks){
-            // writeInspect(chunksInfo, chunksInfo.);
-        // }
         /*
         {
             // chunkId:'',
@@ -68,48 +69,12 @@ WebpackDynamicBundle.prototype.apply = function (compiler) {
             }
         }
 
-        writeInspect(info,'resultInfo.json');
+        // writeInspect(info,'resultInfo.json');
 
-
-        fs.writeFile(path.resolve(__dirname, 'chunks.json'), inspect(chunks), function (err) {
-            if (err) {
-                throw err;
-            }
-            console.log('write done......');
+        fs.writeFile(options.filePath, JSON.stringify(info),function(err){
+            if(err) throw err;
+            cb();
         });
-
-        fs.writeFile(path.resolve(__dirname, 'sort-other.json'), inspect(namedChunks['other']),function(err){
-            if (err) {
-                throw err;
-            }
-            console.log('write done......');
-            //console.log(namedChunks['dynamic']._modules);
-        })
-
-        fs.writeFile(path.resolve(__dirname, 'sort-dynamic1.json'), inspect(namedChunks['dynamic']), function (err) {
-            if (err) {
-                throw err;
-            }
-            console.log('write done......');
-            //console.log(namedChunks['dynamic']._modules);
-        })
-
-
-        fs.writeFile(path.resolve(__dirname, 'namedChunks.json'), inspect(namedChunks), function (err) {
-            if (err) {
-                throw err;
-            }
-            console.log('write done......');
-        });
-
-        fs.writeFile(path.resolve(__dirname, 'modules.json'), inspect(modules), function (err) {
-            if (err) {
-                throw err;
-            }
-            console.log('write done......');
-        });
-
-        cb();
     });
 }
 
