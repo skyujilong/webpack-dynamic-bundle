@@ -4,19 +4,18 @@ const fs = require("fs");
 const path = require('path');
 
 function WebpackDynamicBundle(options) {
-    if (!options || options.filePath){
+    if (!options || !options.filePath){
         throw new Error('need file path!');
     }
     if(!path.isAbsolute(options.filePath)){
         throw new Error('need absolute file path!');
     }
     this.options = options;
-    
 }
 
 WebpackDynamicBundle.prototype.apply = function (compiler) {
     compiler.plugin('emit', (compilation, cb) => {
-        //TODO: 根据compilation 中的getState方法，来获取对应的内容。
+        //根据compilation 中的getState方法，来获取对应的内容。
         let {
             compilation: result
         } = compilation.getStats();
@@ -69,22 +68,10 @@ WebpackDynamicBundle.prototype.apply = function (compiler) {
             }
         }
 
-        // writeInspect(info,'resultInfo.json');
-
         fs.writeFile(options.filePath, JSON.stringify(info),function(err){
             if(err) throw err;
             cb();
         });
-    });
-}
-
-
-function writeInspect(obj,fileName){
-    fs.writeFile(path.resolve(__dirname,fileName),inspect(obj),function(err){
-        if(err){
-            throw err;
-        }
-        console.log('write done');
     });
 }
 
