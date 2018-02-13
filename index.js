@@ -15,7 +15,7 @@ function WebpackDynamicBundle(options) {
 
 WebpackDynamicBundle.prototype.apply = function (compiler) {
     let {filePath} = this.options;
-    compiler.plugin('emit', (compilation, cb) => {
+    compiler.plugin('after-emit', (compilation, cb) => {
         //根据compilation 中的getState方法，来获取对应的内容。
         let {
             compilation: result
