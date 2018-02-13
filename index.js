@@ -49,7 +49,6 @@ WebpackDynamicBundle.prototype.apply = function (compiler) {
         */
         let info = [];
         for (let key in namedChunks){
-            writeInspect(namedChunks[key], `${key}-info.json`);
             let chunkInfo = namedChunks[key];
             if (chunkInfo.entrypoints.length > 0) {
                 continue;
