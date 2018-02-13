@@ -14,6 +14,7 @@ function WebpackDynamicBundle(options) {
 }
 
 WebpackDynamicBundle.prototype.apply = function (compiler) {
+    let {filePath} = this.options;
     compiler.plugin('emit', (compilation, cb) => {
         //根据compilation 中的getState方法，来获取对应的内容。
         let {
@@ -67,7 +68,7 @@ WebpackDynamicBundle.prototype.apply = function (compiler) {
             }
         }
 
-        fs.writeFile(options.filePath, JSON.stringify(info),function(err){
+        fs.writeFile(filePath, JSON.stringify(info),function(err){
             if(err) throw err;
             cb();
         });
