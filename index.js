@@ -21,10 +21,7 @@ WebpackDynamicBundle.prototype.apply = function (compiler) {
             compilation: result
         } = compilation.getStats();
         let {
-            chunks,
-            namedChunks,
-            entrypoints,
-            modules
+            chunks,namedChunks,entrypoints,modules
         } = result;
         /*
         {
@@ -55,14 +52,15 @@ WebpackDynamicBundle.prototype.apply = function (compiler) {
                 continue;
             }
             for (let __module of chunkInfo['_modules']){
+                debugger;
                 info.push({
-                    id:__module.id,
-                    keyPath: __module.resource,
+                    id:__module.id,//module id
+                    keyPath: __module.resource.replace(/(index){0,1}\.(js|jsx)$/, '').replace(/[/\\]$/, ''),//module 所在的路径
                     chunk:{
-                        id: chunkInfo.id,
-                        chunkName: chunkInfo.name,
-                        path: chunkInfo.files[0],
-                        md5: chunkInfo.hash
+                        id: chunkInfo.id,// chunk 的id
+                        chunkName: chunkInfo.name,//chunk的名字
+                        path: chunkInfo.files[0],//chunk的路径
+                        md5: chunkInfo.hash//chunk的hash值
                     }
                 });
             }
